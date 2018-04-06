@@ -1,0 +1,101 @@
+<html>
+<head>
+<title>ScrapS98Class.java</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.ln { color: #606366; font-weight: normal; font-style: normal; }
+.s0 { color: rgb(204,120,50); }
+.s1 { color: rgb(169,183,198); }
+.s2 { color: rgb(128,128,128); }
+.s3 { color: rgb(106,135,89); }
+.s4 { color: rgb(104,151,187); }
+</style>
+</head>
+<BODY BGCOLOR="#2b2b2b">
+<TABLE CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<TR><TD><CENTER>
+<FONT FACE="Arial, Helvetica" COLOR="#000000">
+ScrapS98Class.java</FONT>
+</center></TD></TR></TABLE>
+<pre>
+<span class="s0">import </span><span class="s1">org.jsoup.Jsoup</span><span class="s0">;</span><span class="s1"> 
+</span><span class="s0">import </span><span class="s1">org.jsoup.nodes.Element</span><span class="s0">;</span><span class="s1"> 
+</span><span class="s0">import </span><span class="s1">org.jsoup.select.Elements</span><span class="s0">;</span><span class="s1"> 
+</span><span class="s0">import </span><span class="s1">java.io.IOException</span><span class="s0">;</span><span class="s1"> 
+</span><span class="s0">public class </span><span class="s1">ScrapS98Class { 
+    </span><span class="s0">public static  void </span><span class="s1">main(String[] args) </span><span class="s0">throws </span><span class="s1">IOException{ 
+        </span><span class="s2">///****part1 __ get the main page link****//</span><span class="s1"> 
+        String newLine = System.getProperty(</span><span class="s3">&quot;line.separator&quot;</span><span class="s1">)</span><span class="s0">;</span><span class="s1"> 
+        </span><span class="s0">final  </span><span class="s1">Element doc = Jsoup.connect(</span><span class="s3">&quot;http://soft98.ir/&quot;</span><span class="s1">).get()</span><span class="s0">;</span><span class="s1"> 
+        </span><span class="s2">//log(doc.title());</span><span class="s1"> 
+        </span><span class="s0">final </span><span class="s1">Elements newsHeadlines = doc.select(</span><span class="s3">&quot;h2.card-title &gt; a&quot;</span><span class="s1">)</span><span class="s0">;</span><span class="s1"> 
+        </span><span class="s2">//for (Element headline : newsHeadlines) {</span><span class="s1"> 
+        </span><span class="s2">//log(&quot;%s\n\t%s&quot;,</span><span class="s1"> 
+        </span><span class="s2">//headline.attr(&quot;title&quot;), headline.absUrl(&quot;href&quot;);</span><span class="s1"> 
+        </span><span class="s2">//Element a = newsHeadlines.select(&quot;a&quot;).first();</span><span class="s1"> 
+        </span><span class="s2">//Element a = newsHeadlines.select(&quot;a&quot;).get(5);</span><span class="s1"> 
+        Element a0 = newsHeadlines.select(</span><span class="s3">&quot;a&quot;</span><span class="s1">).get(</span><span class="s4">0</span><span class="s1">)</span><span class="s0">;</span><span class="s1"> 
+        Element a1 = newsHeadlines.select(</span><span class="s3">&quot;a&quot;</span><span class="s1">).get(</span><span class="s4">1</span><span class="s1">)</span><span class="s0">;</span><span class="s1"> 
+        Element a2 = newsHeadlines.select(</span><span class="s3">&quot;a&quot;</span><span class="s1">).get(</span><span class="s4">2</span><span class="s1">)</span><span class="s0">;</span><span class="s1"> 
+        Element a3 = newsHeadlines.select(</span><span class="s3">&quot;a&quot;</span><span class="s1">).get(</span><span class="s4">3</span><span class="s1">)</span><span class="s0">;</span><span class="s1"> 
+        Element a4 = newsHeadlines.select(</span><span class="s3">&quot;a&quot;</span><span class="s1">).get(</span><span class="s4">4</span><span class="s1">)</span><span class="s0">;</span><span class="s1"> 
+        Element a5 = newsHeadlines.select(</span><span class="s3">&quot;a&quot;</span><span class="s1">).get(</span><span class="s4">5</span><span class="s1">)</span><span class="s0">;</span><span class="s1"> 
+        String linkStr0 = a0.attr(</span><span class="s3">&quot;href&quot;</span><span class="s1">)</span><span class="s0">;</span><span class="s1"> 
+        String linkStr1 = a1.attr(</span><span class="s3">&quot;href&quot;</span><span class="s1">)</span><span class="s0">;</span><span class="s1"> 
+        String linkStr2 = a2.attr(</span><span class="s3">&quot;href&quot;</span><span class="s1">)</span><span class="s0">;</span><span class="s1"> 
+        String linkStr3 = a3.attr(</span><span class="s3">&quot;href&quot;</span><span class="s1">)</span><span class="s0">;</span><span class="s1"> 
+        String linkStr4 = a4.attr(</span><span class="s3">&quot;href&quot;</span><span class="s1">)</span><span class="s0">;</span><span class="s1"> 
+        String linkStr5 = a5.attr(</span><span class="s3">&quot;href&quot;</span><span class="s1">)</span><span class="s0">;</span><span class="s1"> 
+        </span><span class="s2">//System.out.println(headline.text());</span><span class="s1"> 
+        </span><span class="s2">//System.out.println(linkStr0);</span><span class="s1"> 
+        </span><span class="s2">//System.out.println(linkStr1);</span><span class="s1"> 
+        </span><span class="s2">//System.out.println(linkStr2);</span><span class="s1"> 
+        </span><span class="s2">//System.out.println(linkStr3);</span><span class="s1"> 
+        </span><span class="s2">//System.out.println(linkStr4);</span><span class="s1"> 
+        </span><span class="s2">//System.out.println(linkStr5);</span><span class="s1"> 
+        </span><span class="s2">//System.setOut(new PrintStream(new FileOutputStream(&quot;log_file.txt&quot;)));</span><span class="s1"> 
+        </span><span class="s2">//}</span><span class="s1"> 
+        </span><span class="s2">///****part1 __ get the main page link****//</span><span class="s1"> 
+ 
+        </span><span class="s2">//****part2 __get the dl links in Exclusive page****//</span><span class="s1"> 
+        </span><span class="s0">final </span><span class="s1">Element doc1 = Jsoup.connect(linkStr0).get()</span><span class="s0">;</span><span class="s1"> 
+        </span><span class="s0">final </span><span class="s1">Elements newsHeadlines1 = doc1.select(</span><span class="s3">&quot;dd.download-list-item &gt; a&quot;</span><span class="s1">)</span><span class="s0">;</span><span class="s1"> 
+        Element a6 = newsHeadlines1.select(</span><span class="s3">&quot;a&quot;</span><span class="s1">).get(</span><span class="s4">0</span><span class="s1">)</span><span class="s0">;</span><span class="s1"> 
+        String linkStr6 = a6.attr(</span><span class="s3">&quot;href&quot;</span><span class="s1">)</span><span class="s0">;</span><span class="s1"> 
+        System.out.println(linkStr6)</span><span class="s0">;</span><span class="s1"> 
+        </span><span class="s2">//******************</span><span class="s1"> 
+        </span><span class="s0">final </span><span class="s1">Element doc2 = Jsoup.connect(linkStr1).get()</span><span class="s0">;</span><span class="s1"> 
+        </span><span class="s0">final </span><span class="s1">Elements newsHeadlines2 = doc2.select(</span><span class="s3">&quot;dd.download-list-item &gt; a&quot;</span><span class="s1">)</span><span class="s0">;</span><span class="s1"> 
+        Element a7 = newsHeadlines2.select(</span><span class="s3">&quot;a&quot;</span><span class="s1">).get(</span><span class="s4">0</span><span class="s1">)</span><span class="s0">;</span><span class="s1"> 
+        String linkStr7 = a7.attr(</span><span class="s3">&quot;href&quot;</span><span class="s1">)</span><span class="s0">;</span><span class="s1"> 
+        System.out.println(linkStr7)</span><span class="s0">;</span><span class="s1"> 
+        </span><span class="s2">//******************</span><span class="s1"> 
+        </span><span class="s0">final </span><span class="s1">Element doc3 = Jsoup.connect(linkStr2).get()</span><span class="s0">;</span><span class="s1"> 
+        </span><span class="s0">final </span><span class="s1">Elements newsHeadlines3 = doc3.select(</span><span class="s3">&quot;dd.download-list-item &gt; a&quot;</span><span class="s1">)</span><span class="s0">;</span><span class="s1"> 
+        Element a8 = newsHeadlines3.select(</span><span class="s3">&quot;a&quot;</span><span class="s1">).get(</span><span class="s4">0</span><span class="s1">)</span><span class="s0">;</span><span class="s1"> 
+        String linkStr8 = a8.attr(</span><span class="s3">&quot;href&quot;</span><span class="s1">)</span><span class="s0">;</span><span class="s1"> 
+        System.out.println(linkStr8)</span><span class="s0">;</span><span class="s1"> 
+        </span><span class="s2">//******************</span><span class="s1"> 
+        </span><span class="s0">final </span><span class="s1">Element doc4 = Jsoup.connect(linkStr3).get()</span><span class="s0">;</span><span class="s1"> 
+        </span><span class="s0">final </span><span class="s1">Elements newsHeadlines4 = doc4.select(</span><span class="s3">&quot;dd.download-list-item &gt; a&quot;</span><span class="s1">)</span><span class="s0">;</span><span class="s1"> 
+        Element a9 = newsHeadlines4.select(</span><span class="s3">&quot;a&quot;</span><span class="s1">).get(</span><span class="s4">0</span><span class="s1">)</span><span class="s0">;</span><span class="s1"> 
+        String linkStr9 = a9.attr(</span><span class="s3">&quot;href&quot;</span><span class="s1">)</span><span class="s0">;</span><span class="s1"> 
+        System.out.println(linkStr9)</span><span class="s0">;</span><span class="s1"> 
+        </span><span class="s2">//******************</span><span class="s1"> 
+        </span><span class="s0">final </span><span class="s1">Element doc5 = Jsoup.connect(linkStr4).get()</span><span class="s0">;</span><span class="s1"> 
+        </span><span class="s0">final </span><span class="s1">Elements newsHeadlines5 = doc5.select(</span><span class="s3">&quot;dd.download-list-item &gt; a&quot;</span><span class="s1">)</span><span class="s0">;</span><span class="s1"> 
+        Element a10 = newsHeadlines5.select(</span><span class="s3">&quot;a&quot;</span><span class="s1">).get(</span><span class="s4">0</span><span class="s1">)</span><span class="s0">;</span><span class="s1"> 
+        String linkStr10 = a10.attr(</span><span class="s3">&quot;href&quot;</span><span class="s1">)</span><span class="s0">;</span><span class="s1"> 
+        System.out.println(linkStr10)</span><span class="s0">;</span><span class="s1"> 
+        </span><span class="s2">//******************</span><span class="s1"> 
+        </span><span class="s0">final </span><span class="s1">Element doc6 = Jsoup.connect(linkStr5).get()</span><span class="s0">;</span><span class="s1"> 
+        </span><span class="s0">final </span><span class="s1">Elements newsHeadlines6 = doc6.select(</span><span class="s3">&quot;dd.download-list-item &gt; a&quot;</span><span class="s1">)</span><span class="s0">;</span><span class="s1"> 
+        Element a11 = newsHeadlines6.select(</span><span class="s3">&quot;a&quot;</span><span class="s1">).get(</span><span class="s4">0</span><span class="s1">)</span><span class="s0">;</span><span class="s1"> 
+        String linkStr11 = a11.attr(</span><span class="s3">&quot;href&quot;</span><span class="s1">)</span><span class="s0">;</span><span class="s1"> 
+        System.out.println(linkStr11)</span><span class="s0">;</span><span class="s1"> 
+        </span><span class="s2">//******************</span><span class="s1"> 
+        </span><span class="s2">//****part2 __get the dl links in Exclusive page****//</span><span class="s1"> 
+    } 
+}</span></pre>
+</body>
+</html>
